@@ -7,6 +7,7 @@
 		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		<script src="./vendor/exif.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
@@ -52,9 +53,14 @@
         <div class="row">
           <div class="card">
 			<h2>Bild</h2>
-            <img src="http://placehold.it/350x150" alt="Card image cap">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
+            <img id="myimage" src="./assets/images/bluete.jpg" alt="Blüte" title="Blüte">
+            <p class="card-text">Eine schöne Blume</p>
+			<p class="card-text">
+				- Severin Kaderli
+			</p>
+			
+			<p>Blende: 1/20</p>
+		  </div>
 		  <div class="card">
 			<h2>Video</h2>
             <video  controls>
@@ -123,5 +129,26 @@
         <p>&copy; 2017 &mdash; Tobias Bürgi &mdash; Severin Kaderli &mdash; Marius Schär</p>
       </div>
     </footer>
+	<script>
+		$(window).on("load", function() {
+		/*
+			console.log(EXIF);
+			$("img").each(function() {
+				var el = $(this).get(0);console.log(el);
+				EXIF.getData(el, function() {
+					console.log(EXIF.pretty(this));
+				});
+			});*/
+			
+		});
+		
+		window.onload = getData;
+		function getData() {
+			EXIF.getData(document.getElementById("myimage"), function() {
+				alert(EXIF.pretty(this));
+			})
+		}
+		
+	</script>
 	</body>
 </html>
