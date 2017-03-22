@@ -58,8 +58,21 @@
 			<p class="card-text">
 				- Severin Kaderli
 			</p>
-			
-			<p>Blende: 1/20</p>
+			<h4>Bildinformation</h4>
+			<table class="card-text">
+				<tr>
+					<th>Blende:</th>
+					<td class="aperture"></td>
+				</tr>
+				<tr>
+					<th>Belichtung:</th>
+					<td class="exposure"></td>
+				</tr>
+				<tr>
+					<th>ISO:</th>
+					<td class="iso"></td>
+				</tr>
+			</table>
 		  </div>
 		  <div class="card">
 			<h2>Video</h2>
@@ -73,11 +86,6 @@
             <audio controls>
 				<source src="https://www.w3schools.com/html/horse.mp3" type="audio/mp3">
 			</audio>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-		  <div class="card">
-			<h2>Anderes Bild</h2>
-            <img src="http://hd-wall-papers.com/images/wallpapers/scenery-image/scenery-image-25.jpg" alt="Card image cap">
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           </div>
 		  <div class="card">
@@ -131,23 +139,27 @@
     </footer>
 	<script>
 		$(window).on("load", function() {
-		/*
-			console.log(EXIF);
+		
 			$("img").each(function() {
-				var el = $(this).get(0);console.log(el);
+				var el = $(this).get(0);
 				EXIF.getData(el, function() {
-					console.log(EXIF.pretty(this));
+					var iso = EXIF.getTag(this, "ISOSpeedRatings");
+					var FNumber = EXIF.getTag(this, "FNumber");
+					var exposure = EXIF.getTag(this, "ExposureTime");
+					$(this).parent().find(".iso").html(iso);
+					if(exposure) {
+						$(this).parent().find(".exposure").html(`${exposure.numerator}/${exposure.denominator}`);
+					}
+					
+					if(FNumber) {
+						$(this).parent().find(".aperture").html("ƒ/" + FNumber);
+					}
+					
 				});
-			});*/
+				
+			});
 			
 		});
-		
-		window.onload = getData;
-		function getData() {
-			EXIF.getData(document.getElementById("myimage"), function() {
-				alert(EXIF.pretty(this));
-			})
-		}
 		
 	</script>
 	</body>

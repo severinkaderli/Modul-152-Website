@@ -8,7 +8,12 @@ body {
 	color: #CCC;
 }
 
-
+table th {
+	padding-right: 20px;
+}
+table td {
+	text-align: center;
+}
 
 .navbar {
   margin-bottom: 0;
