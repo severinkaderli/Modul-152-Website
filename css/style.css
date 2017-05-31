@@ -49,7 +49,7 @@ table td {
 
 .card {
   float: left;
-  width: 50%;
+  width: 30%;
   padding: .75rem;
   margin-bottom: 3rem;
   border: 0;
@@ -74,4 +74,16 @@ footer {
 
 footer p {
   margin-bottom: .25rem;
+}
+
+@media screen and (max-width: 1200px) {
+	.card {
+	  width: 50%;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.card {
+	  width: 100%;
+	}
 }
