@@ -15,6 +15,11 @@ table td {
 	text-align: center;
 }
 
+video {
+  width: 100%;
+  height: auto;
+}
+
 .navbar {
   margin-bottom: 0;
 }
