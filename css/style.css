@@ -39,13 +39,6 @@ table td {
   max-width: 40rem;
 }
 
-.album {
-  min-height: 50rem; /* Can be removed; just added for demo purposes */
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background-color: #19383A;
-}
-
 .card {
   float: left;
   width: 33%;
@@ -73,6 +66,10 @@ footer {
 
 footer p {
   margin-bottom: .25rem;
+}
+
+.text-muted {
+	color: #BBB !important;
 }
 
 @media screen and (max-width: 1200px) {
