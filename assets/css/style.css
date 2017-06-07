@@ -1,3 +1,4 @@
+/* General styles */
 html,
 body {
 	width: 100%;
@@ -8,11 +9,8 @@ body {
 	color: #CCC;
 }
 
-table th {
-	padding-right: 20px;
-}
-table td {
-	text-align: center;
+.text-muted {
+  color: #BBB !important;
 }
 
 video {
@@ -20,10 +18,7 @@ video {
   height: auto;
 }
 
-.navbar {
-  margin-bottom: 0;
-}
-
+/* Jumbotron */
 .jumbotron {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -44,9 +39,9 @@ video {
   max-width: 40rem;
 }
 
+/* Cards */
 .card {
   float: left;
-  width: 33%;
   padding: .75rem;
   margin-bottom: 3rem;
   border: 0;
@@ -64,27 +59,18 @@ video {
   font-size: 85%;
 }
 
+/* Image information table */
+table th {
+  padding-right: 20px;
+}
+
+table td {
+  text-align: center;
+}
+
+/* Footer */
 footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: .25rem;
-}
-
-.text-muted {
-	color: #BBB !important;
-}
-
-@media screen and (max-width: 1200px) {
-	.card {
-	  width: 50%;
-	}
-}
-
-@media screen and (max-width: 550px) {
-	.card {
-	  width: 100%;
-	}
+  text-align: center;
+  margin-top: 5rem;
+  padding: 1rem 0;
 }
