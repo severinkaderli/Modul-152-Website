@@ -13,7 +13,7 @@ $(window).on("load", function() {
 			var iso = EXIF.getTag(this, "ISOSpeedRatings");
 			var FNumber = EXIF.getTag(this, "FNumber");
 			var exposure = EXIF.getTag(this, "ExposureTime");
-			console.log(iso);
+			
 			if(FNumber) {
 				output += `
 					<tr>
