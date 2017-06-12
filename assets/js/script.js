@@ -3,41 +3,49 @@ $(window).on("load", function() {
 	$("img").each(function() {
 		var image = $(this).get(0);
 
-		$(this).parent().append(`
+		var output = "";
+		output += `
 			<h5>Bildinformation</h5>
 			<table class="card-text">
-				<tr>
-					<th>Blende:</th>
-					<td class="aperture"></td>
-				</tr>
-				<tr>
-					<th>Belichtung:</th>
-					<td class="exposure"></td>
-				</tr>
-				<tr>
-					<th>ISO:</th>
-					<td class="iso"></td>
-				</tr>
-			</table>
-		`);
-		
+		`;
+
 		EXIF.getData(image, function() {
 			var iso = EXIF.getTag(this, "ISOSpeedRatings");
 			var FNumber = EXIF.getTag(this, "FNumber");
 			var exposure = EXIF.getTag(this, "ExposureTime");
-			$(this).parent().find(".iso").html(iso);
+			console.log(iso);
+			if(FNumber) {
+				output += `
+					<tr>
+						<th>Blende:</th>
+						<td>ƒ/${FNumber}</td>
+					</tr>
+				`;
+			}
 
 			if(iso) {
-
+				output += `
+					<tr>
+						<th>ISO:</th>
+						<td>${iso}</td>
+					</tr>
+				`;
 			}
 
 			if(exposure) {
-				$(this).parent().find(".exposure").html(`${exposure.numerator}/${exposure.denominator}`);
+				output += `
+					<tr>
+						<th>Belichtungszeit:</th>
+						<td>${exposure.numerator}/${exposure.denominator}</td>
+					</tr>
+				`;
 			}
 			
-			if(FNumber) {
-				$(this).parent().find(".aperture").html("ƒ/" + FNumber);
-			}
+			output += `
+				</table>
+			`;
+
+			$(this).parent().append(output);
 		});
 	});
 });
