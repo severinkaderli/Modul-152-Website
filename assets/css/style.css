@@ -53,6 +53,7 @@ video {
   margin-bottom: .75rem;
   width: 100%;
   height: auto;
+	cursor: pointer;
 }
 
 .card-text {
@@ -73,4 +74,43 @@ footer {
   text-align: center;
   margin-top: 5rem;
   padding: 1rem 0;
+}
+
+div.fancy-carousel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+}
+
+div.fancy-carousel div.container {
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+div.carousel {
+	margin: 0 auto;
+}
+
+button.close {
+	color: white;
+	font-weight: 100;
+	font-size: 45px;
+	top: 20px;
+	right: 30px;
+	position: fixed;
+}
+
+button.close:hover {
+	color: white !important;
+}
+
+div.carousel-item img {
+	max-height: 609px;
 }
