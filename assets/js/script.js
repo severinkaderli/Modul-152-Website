@@ -48,4 +48,19 @@ $(window).on("load", function() {
 			$(this).parent().append(output);
 		});
 	});
+	
+	$('.carousel').carousel('pause');
+
+	$('.card img').click(function() {
+		var attr = $(this).attr('title');
+		$('div.carousel-item img[alt="' + attr + '"]').parent().addClass('active');
+	  $( "div.fancy-carousel" ).toggle();
+	});
+
+	$('button.close').click(function() {
+		$( "div.fancy-carousel" ).toggle();
+		$('div.carousel-item').each(function() {
+			$(this).removeClass('active');
+		})
+	});
 });
